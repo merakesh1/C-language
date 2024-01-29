@@ -55,7 +55,7 @@ void main(){
         sum=sum+arr[i];
     }
     printf("sum is %d\n",sum);  */
-    int searchValue=50;
+    /* int searchValue=50;
     int flag=0;
     for(i=0;i<5;i++){
         if(searchValue==arr[i]){
@@ -66,5 +66,20 @@ void main(){
     }
     if(flag==0){
         printf("element not found\n");
-    }
+    } */
+    /* int j;
+    for(i=5;i>0;i--){
+        for(j=0;j<i;j++){
+            printf(" * ");
+        }
+        printf("\n");
+    } */
+
+    i=0;
+    do
+    {
+        printf("i value is %d\n",i);
+        i++;
+    } while (i<5);
+    
 }
