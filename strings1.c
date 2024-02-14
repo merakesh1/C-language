@@ -27,5 +27,4 @@ void main(){
     int a=10;
     int *ptr = &a;
     printf("value of a is :%d\n",ptr);
-    printf("value of a is :%d",*ptr);
-}
+    printf("value of a is :%d",*ptr); 
