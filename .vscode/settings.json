@@ -4,5 +4,8 @@
         "beginsert",
         "lastinsert",
         "randominsert"
-    ]
+    ],
+    "files.associations": {
+        "stdio.h": "c"
+    }
 }
