@@ -18,52 +18,6 @@ void random_delete();
 void display();
 void search();
 
-int main()
-{
-    int choice = 0;
-    while (choice != 9)
-    {
-        printf("\nMain Menu\n");
-        printf("\nChoose one option from the following list ...\n");
-        printf("\n===============================================\n");
-        printf("\n1.Insert in beginning\n2.Insert at last\n3.Insert at any random location\n4.Delete from Beginning\n5.Delete from last\n6.Delete node after specified location\n7.Search for an element\n8.Show\n9.Exit\n");
-        printf("\nEnter your choice?\n");
-        scanf("%d", &choice);
-        switch (choice)
-        {
-        case 1:
-            beginsert();
-            break;
-        case 2:
-            lastinsert();
-            break;
-        case 3:
-            randominsert();
-            break;
-        case 4:
-            begin_delete();
-            break;
-        case 5:
-            last_delete();
-            break;
-        case 6:
-            random_delete();
-            break;
-        case 7:
-            search();
-            break;
-        case 8:
-            display();
-            break;
-        case 9:
-            exit(0);
-            break;
-        default:
-            printf("Please enter a valid choice..\n");
-        }
-    }
-    return 0; // indicating successful execution
-}
 
 void beginsert()
 {
@@ -81,7 +35,7 @@ void beginsert()
         ptr->data = item;
         ptr->next = head;
         head = ptr;
-        printf("\nNode inserted\n");
+        printf("\nNode inserted successfully\n");
     }
 }
 
@@ -219,10 +173,10 @@ void random_delete()
 
 void search()
 {
-    struct node *ptr;
-    int item, i = 0, flag;
-    ptr = head;
-    if (ptr == NULL)
+    struct node *temp;
+    int item, i = 0, flag=0;
+    temp = head;
+    if (temp == NULL)
     {
         printf("\nEmpty List\n");
     }
@@ -230,21 +184,18 @@ void search()
     {
         printf("\nEnter item which you want to search?\n");
         scanf("%d", &item);
-        while (ptr != NULL)
+        while (temp != NULL)
         {
-            if (ptr->data == item)
+            if (temp->data == item)
             {
                 printf("Item found at location %d\n", i + 1);
-                flag = 0;
-            }
-            else
-            {
                 flag = 1;
+                break;
             }
             i++;
-            ptr = ptr->next;
+            temp = temp->next;
         }
-        if (flag == 1)
+        if (flag == 0)
         {
             printf("Item not found\n");
         }
@@ -253,19 +204,74 @@ void search()
 
 void display()
 {
-    struct node *ptr;
-    ptr = head;
-    if (ptr == NULL)
+    struct node *temp;
+    temp = head;
+    if (temp == NULL)
     {
         printf("Nothing to print\n");
     }
     else
     {
         printf("\nPrinting values . . . . .\n");
-        while (ptr != NULL)
+        /* while (temp->next!= NULL)
         {
-            printf("\n%d", ptr->data);
-            ptr = ptr->next;
+            printf("%d->", temp->data);
+            temp = temp->next;
+        }
+        printf("%d", temp->data);
+        printf("->NULL"); */
+
+        while(temp!=NULL){
+            printf("%d ->",temp->data);
+            temp=temp->next;
+        }
+        printf("NULL\n");
+    }
+}
+
+int main()
+{
+    int choice = 0;
+    while (choice != 9)
+    {
+        printf("\nMain Menu\n");
+        printf("\nChoose one option from the following list ...\n");
+        printf("\n===============================================\n");
+        printf("\n1.Insert in beginning\n2.Insert at last\n3.Insert at any random location\n4.Delete from Beginning\n5.Delete from last\n6.Delete node after specified location\n7.Search for an element\n8.Show\n9.Exit\n");
+        printf("\nEnter your choice?\n");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+        case 1:
+            beginsert();
+            break;
+        case 2:
+            lastinsert();
+            break;
+        case 3:
+            randominsert();
+            break;
+        case 4:
+            begin_delete();
+            break;
+        case 5:
+            last_delete();
+            break;
+        case 6:
+            random_delete();
+            break;
+        case 7:
+            search();
+            break;
+        case 8:
+            display();
+            break;
+        case 9:
+            exit(0);
+            break;
+        default:
+            printf("Please enter a valid choice..\n");
         }
     }
+    return 0; // indicating successful execution
 }
